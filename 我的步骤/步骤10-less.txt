@@ -39,6 +39,8 @@ gulp.task('less', function () {
     .pipe(sourcemaps.init()) //为了找到生成css后对应的less文件
     .pipe(gulp.dest(app.buildPath+'/less'))
     .pipe(less()) //编译less文件
+    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    //当编译时出现语法错误或者其他异常,出现异常并不终止watch事件（gulp-plumber），并提示我们出现了错误（gulp-notify）。
     .pipe(sourcemaps.write()) //为了找到生成css后对应的less文件
     .pipe(gulp.dest(app.srcPath+'/css'))
     /*编译好的less放进去后，会放入进行监听css文件那里，

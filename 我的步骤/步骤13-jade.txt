@@ -1,0 +1,31 @@
+gulpfile.js写入
+
+var gulp = require('gulp'),
+
+//jade
+jade = require('jade'),
+/*
+npm install jade --save-dev
+*/
+gulpJade = require('gulp-jade');
+/*
+npm install gulp-jade --save-dev
+*/
+//jade结束
+
+//jade
+gulp.task('jade', function(){
+  gulp.src(app.srcPath+'/**/*.jade')
+    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    //当编译时出现语法错误或者其他异常,出现异常并不终止watch事件（gulp-plumber），并提示我们出现了错误（gulp-notify）。
+    .pipe(gulpJade({
+      pretty: true
+    }))
+    .pipe(gulp.dest(app.srcPath))
+    .pipe(browserSync.reload({stream:true}));
+});
+//jade结束
+
+gulp.task('serve', function() {
+    gulp.watch(app.srcPath+'/**/*.jade', ['jade']);
+});
