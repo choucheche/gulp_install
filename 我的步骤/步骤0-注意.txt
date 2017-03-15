@@ -10,3 +10,9 @@ npm install 插件名 --save-dev
 
 删除：
 npm uninstall 插件名 --save-dev
+
+gulp clean
+会删除build和dist里的文件
+
+gulp default
+每次src里有的文件会创建到 build和dist文件夹里

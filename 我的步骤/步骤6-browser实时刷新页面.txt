@@ -145,11 +145,13 @@ gulp.task('serve', function() {
   gulp.watch(app.srcPath+'/**/*.html', ['html']);
 });
 
-gulp.task("default",["clean","browser-sync","serve"]);
+gulp.task("default",["browser-sync","serve"]);
 /*
+执行gulp clean，清除dist,build目录里所有的文件
+
 每次执行default任务后
-先执行clean，清除dist,build目录里所有的文件
-再执行browser-sync，打开文件监听，无需F5自动刷新页面
+执行browser-sync，打开文件监听，无需F5自动刷新页面
 再执行serve，开启所有文件监听
+每次src里有的文件会创建到 build和dist文件夹里
 运行后，会提示localhost:3000没找到，这个报错没事，可以正常使用
 */
