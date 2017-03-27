@@ -22,3 +22,15 @@ body {
 a {
   text-decoration: none;
 }
+.d-b {
+  display: block;
+}
+body {
+  font-size: 0.42666667rem;
+}
+p {
+  font-size: 0.53333333rem;
+}
+img {
+  width: 5.33333333rem;
+}

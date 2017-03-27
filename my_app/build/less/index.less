@@ -26,3 +26,25 @@ body {
 a {
     text-decoration: none;
 }
+
+
+.w(@px){
+//自动将传来的px值转换成rem值，37.5按页面为 750设计图计算
+  width:unit(@px/37.5,rem);
+}
+.fs(@px){
+//自动将传来的px值转换成rem值，37.5按页面为 750设计图计算
+  font-size:unit(@px/37.5,rem);
+}
+.d-b{
+  display:block;
+}
+body{
+  .fs(16);
+}
+p{
+  .fs(20);
+}
+img{
+  .w(200);
+}
