@@ -177,7 +177,7 @@ gulp.task('clean',function() {
   //删除dist里面所有的文件
 });
 
-gulp.task("browser-sync",["html",'bower_copy','script','style','imageMin','less','sass','concatJs','jade'],function(){
+gulp.task("browser-sync",["html",'bower_copy','script','style','imageMin','concatJs','jade'],function(){
 //将任务放入自动刷新页面插件里
   browserSync({
     port: 3000,
@@ -319,20 +319,17 @@ gulp.task('imageMin', function () {
 gulp.task('less', function () {
 //编译less转为css
   gulp.src([app.srcPath+'/less/**/*.less',app.no_srcPath+'/less/**/*0.less'])
-    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    //.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    .pipe(plumber())
     //当编译时出现语法错误或者其他异常,出现异常并不终止watch事件（gulp-plumber），并提示我们出现了错误（gulp-notify）。
     .pipe(sourcemaps.init()) //为了找到生成css后对应的less文件
     .pipe(gulp.dest(app.buildPath+'/less'))
     .pipe(less()) //编译less文件
-    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-    //当编译时出现语法错误或者其他异常,出现异常并不终止watch事件（gulp-plumber），并提示我们出现了错误（gulp-notify）。
     .pipe(sourcemaps.write()) //为了找到生成css后对应的less文件
-    .pipe(gulp.dest(app.srcPath+'/css'))
+    .pipe(gulp.dest(app.srcPath+'/css'));
     /*编译好的less放进去后，会放入进行监听css文件那里，
       css任务那里会自动压缩css，给链接加版本号
     */
-    .pipe(browserSync.reload({stream:true}));
-    //执行无需F5自动刷新页面
 });
 //less结束
 
@@ -340,18 +337,15 @@ gulp.task('less', function () {
 gulp.task('sass', function () {
 //编译sass/scss文件转换为css
   return gulp.src([app.srcPath+'/sass/**/*.scss',app.no_srcPath+'/sass/**/*0.scss'])
-    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    //.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    .pipe(plumber())
     //当编译时出现语法错误或者其他异常,出现异常并不终止watch事件（gulp-plumber），并提示我们出现了错误（gulp-notify）。
     .pipe(gulp.dest(app.buildPath+'/sass'))
     .pipe(sass().on('error', sass.logError))
-    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-    //当编译时出现语法错误或者其他异常,出现异常并不终止watch事件（gulp-plumber），并提示我们出现了错误（gulp-notify）。
-    .pipe(gulp.dest(app.srcPath+'/css'))
+    .pipe(gulp.dest(app.srcPath+'/css'));
     /*编译好的sass放进去后，会放入进行监听css文件那里，
       css任务那里会自动压缩css，给链接加版本号
     */
-    .pipe(browserSync.reload({stream:true}));
-    //执行无需F5自动刷新页面
 });
 //sass结束
 
