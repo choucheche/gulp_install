@@ -2,13 +2,15 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
 
+}
+html{
+  text-size-adjust: 100%;
+}
 html * {
     outline: 0;
-    -webkit-text-size-adjust: none;
-    -ms-text-size-adjust: none; //关闭字体大小自动调整功能.
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    text-size-adjust: 100%;
 }
 
 body,
@@ -26,24 +28,16 @@ body {
 a {
     text-decoration: none;
 }
+@import 'configuration.less';
+@import 'property.less';
+@import 'variable.less';
 
-
-.w(@px){
-//自动将传来的px值转换成rem值，37.5按页面为 750设计图计算
-  width:unit(@px/37.5,rem);
-}
-.fs(@px){
-//自动将传来的px值转换成rem值，37.5按页面为 750设计图计算
-  font-size:unit(@px/37.5,rem);
-}
-.d-b{
-  display:block;
-}
 body{
   .fs(16);
 }
 p{
-  .fs(20);
+  -webkit-text-size-adjust:none;
+  .fs(30);
 }
 img{
   .w(200);
