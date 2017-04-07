@@ -376,6 +376,7 @@ gulp.task('jade', function(){
 //jade结束
 
 gulp.task('public', function(){
+//public里的文件，一般放不需要压缩的 .min 的  
   gulp.src(app.srcPath+'/public/**/*')
   .pipe(gulp.dest(app.buildPath+'/public'))
   .pipe(gulp.dest(app.distPath+'/public'))
