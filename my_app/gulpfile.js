@@ -172,12 +172,14 @@ gulp.task('clean',function() {
     app.distPath+'/img/*',
     app.buildPath+'/less/*',
     app.buildPath+'/sass/*',
-    app.buildPath+'/concat_js/*'
+    app.buildPath+'/concat_js/*',
+    app.buildPath+'/public/*',
+    app.distPath+'/public/*'
   ]);
   //删除dist里面所有的文件
 });
 
-gulp.task("browser-sync",["html",'bower_copy','script','style','imageMin','concatJs','jade'],function(){
+gulp.task("browser-sync",["html",'bower_copy','script','style','imageMin','concatJs','jade','public'],function(){
 //将任务放入自动刷新页面插件里
   browserSync({
     port: 3000,
@@ -373,6 +375,13 @@ gulp.task('jade', function(){
 });
 //jade结束
 
+gulp.task('public', function(){
+  gulp.src(app.srcPath+'/public/**/*')
+  .pipe(gulp.dest(app.buildPath+'/public'))
+  .pipe(gulp.dest(app.distPath+'/public'))
+  .pipe(browserSync.reload({stream:true}));
+});
+
 gulp.task('serve', function() {
     gulp.watch(app.srcPath+'/bower_components/**/*', ['bower_copy']);
     gulp.watch(app.srcPath+'/**/*.html', ['html']);
@@ -383,6 +392,7 @@ gulp.task('serve', function() {
     gulp.watch(app.srcPath+'/img/**/*', ['imageMin']);
     gulp.watch(app.srcPath+'/concat_js/**/*.js', ['concatJs']);
     gulp.watch(app.srcPath+'/**/*.jade', ['jade']);
+    gulp.watch(app.srcPath+'/public/**/*', ['public']);
 });
 
 gulp.task("default",["browser-sync","serve"]);
