@@ -13,6 +13,9 @@
 .d-b {
   display: block;
 }
+.nd-b {
+  display: none;
+}
 .ta-l {
   text-align: left;
 }
@@ -30,4 +33,18 @@
 }
 .va-t {
   vertical-align: top;
+}
+.p-r {
+  position: relative;
+}
+.p-a {
+  position: absolute;
+}
+.p-f {
+  position: fixed;
+}
+.text-h {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

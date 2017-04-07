@@ -1,16 +1,23 @@
+@import 'configuration.less'; // 转换大小
+@import 'property.less'; // 简写 class 样式
+@import 'variable.less'; // 设置变量
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
 
+html {
+    text-size-adjust: 100%;
 }
-html{
-  text-size-adjust: 100%;
-}
+
 html * {
     outline: 0;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    /*禁止点击链接后，IOS出现背景色*/
     text-size-adjust: 100%;
+    border:none;
 }
 
 body,
@@ -21,17 +28,40 @@ html {
 body {
     overflow-x: hidden;
     position: relative;
-    color: #000;
-    background: #fff;
+    background:@bodyBgColor;
+    width:100%;
+    overflow-x:hidden;
+}
+
+input,
+textarea {
+    -webkit-appearance: none;
+    /*消除输入框和按钮的原生外观*/
+}
+
+/*修改 input 的 placeholder 颜色*/
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+color: @placeholder;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+color: @placeholder;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+color: @placeholder;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+color: @placeholder;
 }
 
 a {
     text-decoration: none;
 }
-@import 'configuration.less';
-@import 'property.less';
-@import 'variable.less';
-
+a:focus{
+  outline:none;
+}
+a:focus, a:hover{
+  text-decoration: none;
+}
 body{
   .fs(16);
 }

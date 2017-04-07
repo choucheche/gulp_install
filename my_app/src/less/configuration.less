@@ -1,16 +1,23 @@
-.fs(@px){
-//自动将传来的px值转换成rem值，150按页面为 1500设计图计算
+.f-s(@px){
+//自动将传来的px值转换成rem值，150按页面为 750设计图计算
   font-size:unit(@px/150,rem);
 }
 .w(@px){
   width:unit(@px/150,rem);
 }
+.w-important(@px){
+  width:unit(@px/150,rem) !important;
+}
 .h(@px){
   height:unit(@px/150,rem);
 }
-.lh(@px){
+.l-h(@px){
   line-height:unit(@px/150,rem);
 }
+.m(@px1,@px2,@px3,@px4){
+  margin:unit(@px1/150,rem) unit(@px2/150,rem) unit(@px3/150,rem) unit(@px4/150,rem);
+}
+
 .mt(@px){
   margin-top:unit(@px/150,rem);
 }
@@ -50,9 +57,27 @@
 .r(@px){
   right:unit(@px/150,rem);
 }
-.bp(@px1,@px2){
+.bg-p(@px1,@px2){
   background-position: unit(@px1/150,rem) unit(@px2/150,rem);
 }
-.bp-y-c(@px1){
+.bg-x-c(@px1){
+  background-position: center unit(@px1/150,rem);
+}
+.bg-y-c(@px1){
   background-position: unit(@px1/150,rem) center;
+}
+.bg-s(@px1,@px2){
+  background-size: unit(@px1/150,rem) unit(@px2/150,rem);
+}
+.bg-s-x(@px1){
+  background-size: unit(@px1/150,rem) auto;
+}
+.bg-s-y(@px1){
+  background-size: auto unit(@px1/150,rem);
+}
+.b-r(@px1){
+  border-radius: unit(@px1/150,rem);
+}
+.t-t(@px1,@px2){
+  transform: translate(unit(@px1/150,rem),unit(@px2/150,rem));
 }

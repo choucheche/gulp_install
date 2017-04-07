@@ -43,6 +43,9 @@ a {
 .d-b {
   display: block;
 }
+.nd-b {
+  display: none;
+}
 .ta-l {
   text-align: left;
 }
@@ -60,6 +63,20 @@ a {
 }
 .va-t {
   vertical-align: top;
+}
+.p-r {
+  position: relative;
+}
+.p-a {
+  position: absolute;
+}
+.p-f {
+  position: fixed;
+}
+.text-h {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 body {
   font-size: 0.10666667rem;
