@@ -39,19 +39,6 @@ textarea {
     /*消除输入框和按钮的原生外观*/
 }
 
-/*修改 input 的 placeholder 颜色*/
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-color: @placeholder;
-}
-input:-moz-placeholder, textarea:-moz-placeholder {
-color: @placeholder;
-}
-input::-moz-placeholder, textarea::-moz-placeholder {
-color: @placeholder;
-}
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-color: @placeholder;
-}
 
 a {
     text-decoration: none;
@@ -63,11 +50,12 @@ a:focus, a:hover{
   text-decoration: none;
 }
 body{
-  .fs(16);
+  .f-s(16);
+
 }
 p{
   -webkit-text-size-adjust:none;
-  .fs(30);
+  .f-s(30);
 }
 img{
   .w(200);

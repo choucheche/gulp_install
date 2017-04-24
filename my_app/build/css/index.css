@@ -1,33 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
-}
-html * {
-  outline: 0;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
-}
-body,
-html {
-  font-family: Microsoft YaHei, Helvetica Neue, Helvetica, Roboto, STHeiTi, Arial, sans-serif;
-}
-body {
-  overflow-x: hidden;
-  position: relative;
-  color: #000;
-  background: #fff;
-}
-a {
-  text-decoration: none;
-}
 .f-l {
   float: left;
 }
@@ -78,13 +48,57 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+html * {
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /*禁止点击链接后，IOS出现背景色*/
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  border: none;
+}
+body,
+html {
+  font-family: Microsoft YaHei, Helvetica Neue, Helvetica, Roboto, STHeiTi, Arial, sans-serif;
+}
 body {
-  font-size: 0.10666667rem;
+  position: relative;
+  background: #f9f9f9;
+  width: 100%;
+  overflow-x: hidden;
+}
+input,
+textarea {
+  -webkit-appearance: none;
+  /*消除输入框和按钮的原生外观*/
+}
+a {
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+body {
+  font-size: 0.21333333rem;
 }
 p {
   -webkit-text-size-adjust: none;
-  font-size: 0.2rem;
+  font-size: 0.4rem;
 }
 img {
-  width: 1.33333333rem;
+  width: 2.66666667rem;
 }
