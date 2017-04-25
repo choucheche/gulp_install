@@ -300,7 +300,7 @@ gulp.task('style',function(){
 /*img图片压缩*/
 gulp.task('imageMin', function () {
 //优化图片
-  gulp.src([app.srcPath+'/img/**/*.{png,jpg,gif,ico}'])
+  gulp.src([app.srcPath+'/img/**/*.{png,jpg,gif,ico}',app.no_srcPat+'/img/images/*'])
     .pipe(gulp.dest(app.buildPath+'/img'))
     .pipe(cache(imagemin({
     // cache( 减少压缩图片的内存消耗
@@ -376,7 +376,7 @@ gulp.task('jade', function(){
 //jade结束
 
 gulp.task('public', function(){
-//public里的文件，一般放不需要压缩的 .min 的  
+//public里的文件，一般放不需要压缩的 .min 的
   gulp.src(app.srcPath+'/public/**/*')
   .pipe(gulp.dest(app.buildPath+'/public'))
   .pipe(gulp.dest(app.distPath+'/public'))
