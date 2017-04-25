@@ -27,14 +27,14 @@
           if (userAgentInfo.indexOf(Agents[v]) > 0) {
             console.log('移动');
 
-            document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/5+'px';
+            document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/10+'px';
             //body字体大小为页面宽度除以 10
 
             return
           }
         console.log('PC');
 
-        document.getElementsByTagName('html')[0].style.fontSize=37.5+'px';
+        document.getElementsByTagName('html')[0].style.fontSize=75+'px';
         /*
           设置页面 html 文字根字号大小为37.5，为了让 less 好计算
           这样 less 里的数值是多少就是多少 px了

@@ -15,7 +15,7 @@
           if (userAgentInfo.indexOf(Agents[v]) > 0) {
             console.log('移动');
 
-            document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/5+'px';
+            document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/10+'px';
             //body字体大小为页面宽度除以 10
 
             return
@@ -61,7 +61,7 @@
       if (userAgentInfo.indexOf(Agents[v]) > 0) {
         console.log('移动');
 
-        document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/5+'px';
+        document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/10+'px';
         //body字体大小为页面宽度除以 10
 
         return
@@ -81,12 +81,12 @@
 *参考 src/less/index.less
 
 .w(@px){
-//自动将传来的px值转换成rem值，150按页面为 750设计图计算
-  width:unit(@px/150,rem);
+//自动将传来的px值转换成rem值，75按页面为 750设计图计算
+  width:unit(@px/75,rem);
 }
 .fs(@px){
-//自动将传来的px值转换成rem值，150按页面为 750设计图计算
-  font-size:unit(@px/150,rem);
+//自动将传来的px值转换成rem值，75按页面为 750设计图计算
+  font-size:unit(@px/75,rem);
 }
 .d-b{
   display:block;
