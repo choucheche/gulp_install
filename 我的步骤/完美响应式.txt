@@ -6,33 +6,26 @@
 
 <script src='public/js/jquery-1.11.1.min.js'></script>
 <script>
-  $(function(){
-    $(window).resize(function() {
-    //当页面宽度变化时
-      (function IsPC() {
-      //判断是 移动端 还是 PC
-        for (var userAgentInfo = navigator.userAgent, Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"], flag = !0, v = 0; v < Agents.length; v++)
-          if (userAgentInfo.indexOf(Agents[v]) > 0) {
-            console.log('移动');
+  (function IsPC() {
+    for (var userAgentInfo = navigator.userAgent, Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"], flag = !0, v = 0; v < Agents.length; v++)
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        console.log('移动');
 
-            document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/10+'px';
-            //body字体大小为页面宽度除以 10
-
-            return
-          }
-        console.log('PC');
-
-        document.getElementsByTagName('html')[0].style.fontSize=37.5+'px';
-        /*
-          设置页面 html 文字根字号大小为37.5，为了让 less 好计算
-          这样 less 里的数值是多少就是多少 px了
-        */
+        document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/10+'px';
+        //body字体大小为页面宽度除以 10
 
         return
-      })();
-    });
+      }
+    console.log('PC');
 
-  });
+    document.getElementsByTagName('html')[0].style.fontSize=75+'px';
+    /*
+      设置页面 html 文字根字号大小为37.5，为了让 less 好计算
+      这样 less 里的数值是多少就是多少 px了
+    */
+    return
+  })();
+  // 判断浏览器是手机还是PC
 </script>
 
 *参考src/include/header.html里的控制meta代码
@@ -68,7 +61,7 @@
       }
     console.log('PC');
 
-    document.getElementsByTagName('html')[0].style.fontSize=37.5+'px';
+    document.getElementsByTagName('html')[0].style.fontSize=75+'px';
     /*
       设置页面 html 文字根字号大小为37.5，为了让 less 好计算
       这样 less 里的数值是多少就是多少 px了
@@ -92,11 +85,11 @@
   display:block;
 }
 body{
-  .fs(16);
+  .f-s(16);
   //在pc里是 font-size:16px; ，在移动端里是响应式的
 }
 p{
-  .fs(20);
+  .f-s(20);
 }
 img{
   .w(200);

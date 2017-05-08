@@ -179,7 +179,7 @@ gulp.task('clean',function() {
   //删除dist里面所有的文件
 });
 
-gulp.task("browser-sync",["html",'bower_copy','script','style','imageMin','concatJs','jade','public'],function(){
+gulp.task("browser-sync",["html",'bower_copy','script','style','imageMin','concatJs','jade','public','data'],function(){
 //将任务放入自动刷新页面插件里
   browserSync({
     port: 3000,
@@ -300,17 +300,17 @@ gulp.task('style',function(){
 /*img图片压缩*/
 gulp.task('imageMin', function () {
 //优化图片
-  gulp.src([app.srcPath+'/img/**/*.{png,jpg,gif,ico}'])
+  gulp.src([app.srcPath+'/img/**/*.{png,jpg,gif,ico}',app.no_srcPat+'/img/images/*'])
     .pipe(gulp.dest(app.buildPath+'/img'))
-    .pipe(cache(imagemin({
-    // cache( 减少压缩图片的内存消耗
-      progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
-      //optimizationLevel: 5, //类型：Number  默认：3 取值范围：0-7（优化等级）
-      //interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
-      //multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
-      svgoPlugins: [{removeViewBox: false}], //不要移除svg的viewbox属性
-      use: [pngquant()] //使用pngquant深度压缩png图片的imagemin插件
-    })))
+    // .pipe(cache(imagemin({
+    // // cache( 减少压缩图片的内存消耗
+    //   progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+    //   //optimizationLevel: 5, //类型：Number  默认：3 取值范围：0-7（优化等级）
+    //   //interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
+    //   //multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+    //   svgoPlugins: [{removeViewBox: false}], //不要移除svg的viewbox属性
+    //   use: [pngquant()] //使用pngquant深度压缩png图片的imagemin插件
+    // })))
     .pipe(gulp.dest(app.distPath+'/img'))
     .pipe(browserSync.reload({stream:true}));
     //执行无需F5自动刷新页面
@@ -376,12 +376,21 @@ gulp.task('jade', function(){
 //jade结束
 
 gulp.task('public', function(){
-//public里的文件，一般放不需要压缩的 .min 的  
+//public里的文件，一般放不需要压缩的 .min 的
   gulp.src(app.srcPath+'/public/**/*')
   .pipe(gulp.dest(app.buildPath+'/public'))
   .pipe(gulp.dest(app.distPath+'/public'))
   .pipe(browserSync.reload({stream:true}));
 });
+
+//data
+gulp.task('data', function(){
+  gulp.src(app.srcPath+'/data/**/*')
+    .pipe(gulp.dest(app.buildPath+'/data'))
+    .pipe(gulp.dest(app.distPath+'/data'))
+    .pipe(browserSync.reload({stream:true}));
+});
+//data结束
 
 gulp.task('serve', function() {
     gulp.watch(app.srcPath+'/bower_components/**/*', ['bower_copy']);
@@ -394,6 +403,7 @@ gulp.task('serve', function() {
     gulp.watch(app.srcPath+'/concat_js/**/*.js', ['concatJs']);
     gulp.watch(app.srcPath+'/**/*.jade', ['jade']);
     gulp.watch(app.srcPath+'/public/**/*', ['public']);
+    gulp.watch(app.srcPath+'/data/*', ['data']);
 });
 
 gulp.task("default",["browser-sync","serve"]);
