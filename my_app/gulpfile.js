@@ -302,15 +302,15 @@ gulp.task('imageMin', function () {
 //优化图片
   gulp.src([app.srcPath+'/img/**/*.{png,jpg,gif,ico}',app.no_srcPat+'/img/images/*'])
     .pipe(gulp.dest(app.buildPath+'/img'))
-    .pipe(cache(imagemin({
-    // cache( 减少压缩图片的内存消耗
-      progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
-      //optimizationLevel: 5, //类型：Number  默认：3 取值范围：0-7（优化等级）
-      //interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
-      //multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
-      svgoPlugins: [{removeViewBox: false}], //不要移除svg的viewbox属性
-      use: [pngquant()] //使用pngquant深度压缩png图片的imagemin插件
-    })))
+    // .pipe(cache(imagemin({
+    // // cache( 减少压缩图片的内存消耗
+    //   progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+    //   //optimizationLevel: 5, //类型：Number  默认：3 取值范围：0-7（优化等级）
+    //   //interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
+    //   //multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+    //   svgoPlugins: [{removeViewBox: false}], //不要移除svg的viewbox属性
+    //   use: [pngquant()] //使用pngquant深度压缩png图片的imagemin插件
+    // })))
     .pipe(gulp.dest(app.distPath+'/img'))
     .pipe(browserSync.reload({stream:true}));
     //执行无需F5自动刷新页面
