@@ -385,9 +385,9 @@ gulp.task('public', function(){
 
 //data
 gulp.task('data', function(){
-  gulp.src(app.srcPath+'/data/*')
-    .pipe(gulp.dest(app.buildPath+'/data/*'))
-    .pipe(gulp.dest(app.distPath+'/data/*'))
+  gulp.src(app.srcPath+'/data/**/*')
+    .pipe(gulp.dest(app.buildPath+'/data'))
+    .pipe(gulp.dest(app.distPath+'/data'))
     .pipe(browserSync.reload({stream:true}));
 });
 //data结束
