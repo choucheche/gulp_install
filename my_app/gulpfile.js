@@ -174,7 +174,11 @@ gulp.task('clean',function() {
     app.buildPath+'/sass/*',
     app.buildPath+'/concat_js/*',
     app.buildPath+'/public/*',
-    app.distPath+'/public/*'
+    app.distPath+'/public/*',
+    app.buildPath+'/data/*',
+    app.distPath+'/data/*',
+    app.buildPath+'/bower_components/*',
+    app.distPath+'/bower_components/*'
   ]);
   //删除dist里面所有的文件
 });
