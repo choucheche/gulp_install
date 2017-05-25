@@ -1,0 +1,37 @@
+﻿官方：https://bower.io/
+
+安装 bower：
+npm install -g bower
+
+cmd到指定目录下
+在当前目录，初始化bower，创造出bower.json
+bower init
+
+cmd到指定目录下
+
+bower install jquery --save
+安装jquery插件，并在bower.json加入依赖
+
+或者
+在github 上找到组件的github地址，比如 https://github.com/jquery/jquery.git
+bower install https://github.com/jquery/jquery.git
+会自动安装最新的github上的这个组件，文件到bower_components目录下
+
+bower uninstall jquery --save
+删除jquery插件，并在bower.json删除依赖
+
+接下来删了bower_components下的所有内容，然后bower install，
+他会把bower.json中的dependencies重新下载。
+
+bower插件下载到指定目录
+在指定目录下，新建文件名为.bowerrc的文件，在里面写入
+{
+  "directory" : "public/components"
+}
+那么以后安装，删除的插件都在public/components里面
+
+bower update
+更新bower.json文件里的插件
+
+bower update jquery 
+更新指定的插件

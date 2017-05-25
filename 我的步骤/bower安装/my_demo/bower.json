@@ -1,0 +1,21 @@
+{
+  "name": "my_demo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "'choucheche' <snow100401176@126.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
