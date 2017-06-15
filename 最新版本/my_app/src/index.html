@@ -1,0 +1,25 @@
+@@include('./include/header.html')
+  <title>微妙移动</title>
+  <link type='text/css' rel='stylesheet' href='public/font-awesome-4.7.0/css/font-awesome.min.css'>
+  <link type='text/css' rel='stylesheet' href='public/fullPage.js-master/dist/jquery.fullpage.min.css?rev=@@hash'>
+  <link type='text/css' rel='stylesheet' href='./css/index.css?rev=@@hash'>
+</head>
+<body>
+<p>
+  这里的代码是响应式大小，
+  请参考 include/header.html的meta，less/index.less，
+  本页面下面的js控制，当页面大小改变时，html标签上重新算字体大小
+  ceshi
+<p>
+<img class='d-b' src='img/me.jpg?rev=@@hash'>
+<i class="fa fa-camera-retro fa-4x"></i> fa-4x
+@@include('./include/footer.html')
+<script src='public/fullPage.js-master/dist/jquery.fullpage.min.js?rev=@@hash'></script>
+<script src='js/index.js?rev=@@hash'></script>
+<script>
+  $(function(){
+    js_.index();
+  });
+</script>
+</body>
+</html>

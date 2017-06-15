@@ -4,8 +4,8 @@
 .f-r {
   float: right;
 }
-.clear {
-  clear: both;
+.d-i {
+  display: inline;
 }
 .d-ib {
   display: inline-block;
@@ -47,6 +47,12 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.clear:after {
+  content: "";
+  clear: both;
+  width: 100%;
+  display: block;
 }
 * {
   padding: 0;
@@ -100,5 +106,5 @@ p {
   font-size: 0.4rem;
 }
 img {
-  width: 2.66666667rem;
+  width: 1.33333333rem;
 }

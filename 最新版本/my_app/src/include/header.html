@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <!-- 让国内浏览器支持告诉模式 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+  <!-- 让页面支持IE8 -->
+  <!--[if lt IE 9]>
+    <script xsrc="../assets/js/ie8-responsive-file-warning.js"></script>
+  <![endif]-->
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="public/html5shiv/html5shiv.min.js"></script>
+    <script src="public/html5shiv/respond.min.js"></script>
+  <![endif]-->
+  <!-- 让页面支持IE8 结束 -->
+  
+<script>
+  (function IsPC() {
+    for (var userAgentInfo = navigator.userAgent, Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"], flag = !0, v = 0; v < Agents.length; v++)
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        console.log('移动');
+
+        document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/5+'px';
+        //body字体大小为页面宽度除以 5
+
+        return
+      }
+    console.log('PC');
+    document.getElementsByTagName('html')[0].style.fontSize='150px';
+    /*
+      设置页面 html 文字根字号大小为150，为了让 less 好计算
+      这样 less 里的数值是多少就是多少 px了
+    */
+    return
+  })();
+  // 判断浏览器是手机还是PC
+</script>

@@ -1,0 +1,63 @@
+@import 'configuration.less'; // 转换大小
+@import 'property.less'; // 简写 class 样式
+@import 'variable.less'; // 设置变量
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    text-size-adjust: 100%;
+}
+
+html * {
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    /*禁止点击链接后，IOS出现背景色*/
+    text-size-adjust: 100%;
+    border:none;
+}
+
+body,
+html {
+    font-family: Microsoft YaHei,Helvetica Neue,Helvetica,Roboto,STHeiTi,Arial,sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+    background:@bodyBgColor;
+    width:100%;
+    overflow-x:hidden;
+}
+
+input,
+textarea {
+    -webkit-appearance: none;
+    /*消除输入框和按钮的原生外观*/
+}
+
+a {
+    text-decoration: none;
+}
+a:focus{
+  outline:none;
+}
+a:focus, a:hover{
+  text-decoration: none;
+}
+body{
+  .f-s(16);
+}
+p{
+  -webkit-text-size-adjust:none;
+  .f-s(30);
+}
+img{
+  .w(100);
+  border-radius:50%;
+  display:block;
+  box-shadow:0 0 15px 10px #000;
+}
